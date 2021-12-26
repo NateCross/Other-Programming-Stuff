@@ -4,6 +4,7 @@
 #include <string>
 
 static const int ASPECT_MAX = 100;
+static const int STRING_MAX = 200;
 
 class Character {
     public:
@@ -21,9 +22,13 @@ class Character {
         const int         getAspectNum      ();
 
         void              addAspect         (const std::string&);
+        bool              deleteAspect      (const int&);
         void              swapAspect        (const int&, const int&);
-        void              countAspects      ();
+        // void              countAspects      ();
         const void        displayAllAspects ();
+
+        void              addFatePoint      ();
+        void              removeFatePoint   ();
 
     protected:
         std::string  characterName;
