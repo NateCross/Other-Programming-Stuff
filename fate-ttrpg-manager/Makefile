@@ -1,18 +1,14 @@
-CXX=g++
+CXX= g++
 CXXFLAGS= -Wall -g
+LIB = -lncurses
 OBJFLAG = -c
+SRCS = main.o ncurses-menu.o character.o
 
-main: main.o fancyTerminal.o character.o
-	$(CXX) $(CXXFLAGS) -o $@ $^
+all: $(SRCS)
+	$(CXX) $^ -o $@
 
-main.o: main.cpp
-	$(CXX) $(CXXFLAGS) $(OBJFLAG) $^
-
-fancyTerminal.o: lib/fancyTerminal.cpp lib/fancyTerminal.hpp
-	$(CXX) $(CXXFLAGS) $(OBJFLAG) $^
-
-character.o: character.cpp character.hpp
-	$(CXX) $(CXXFLAGS) $(OBJFLAG) $^
+*.o: *.cpp
+	$(CXX) $(CXXFLAGS) $< $(OBJFLAG) $(LIB)
 
 clean:
 	rm -f *.o

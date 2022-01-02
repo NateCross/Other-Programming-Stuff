@@ -7,11 +7,11 @@
 #include <iostream>
 #include <string>
 #include "character.hpp"
-#include "lib/fancyTerminal.hpp"
+#include "ncurses-menu.hpp"
 
 const void pressEnter() {
-    std::cout << "Press enter to continue.\n";
-    getchar();
+    printw("Press Enter to continue.");
+    getch();
 }
 
 std::string createAspect() {
